@@ -91,13 +91,13 @@
 <meta property="og:site_name" content="C Tempest">
 <meta property="og:description" content="Priests of the Quetzalcoatl cult want to build a tower to represent a power of their god. Tower is usually made of power-charged rocks. It is built with the help of rare magic by levitating the curren">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://vj.ti12z.cn/480ecd0b947389fd5c1884d6e89f2017?v=1555683139">
-<meta property="og:image" content="c:/Users/IchinoseHonami/AppData/Roaming/Typora/typora-user-images/1556033780231.png">
-<meta property="og:updated_time" content="2019-04-24T10:41:21.526Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/23/CF906D-Power-Tower/img.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/23/CF906D-Power-Tower/img2.png">
+<meta property="og:updated_time" content="2019-04-24T12:00:07.813Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CF906D Power Tower">
 <meta name="twitter:description" content="Priests of the Quetzalcoatl cult want to build a tower to represent a power of their god. Tower is usually made of power-charged rocks. It is built with the help of rare magic by levitating the curren">
-<meta name="twitter:image" content="https://vj.ti12z.cn/480ecd0b947389fd5c1884d6e89f2017?v=1555683139">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/23/CF906D-Power-Tower/img.png">
 
 
 
@@ -371,15 +371,15 @@
       
 
       
-        <p>Priests of the Quetzalcoatl cult want to build a tower to represent a power of their god. Tower is usually made of power-charged rocks. It is built with the help of rare magic by levitating the current top of tower and adding rocks at its bottom. If top, which is built from <em>k</em> - 1 rocks, possesses power <em>p</em> and we want to add the rock charged with power <em>$w_k$</em> then value of power of a new tower will be {<em>$w_k$</em>}$^p$.</p>
-<p>Rocks are added from the last to the first. That is for sequence <em>w</em>1, …, <em>w**m</em> value of power will be</p>
-<p><img src="https://vj.ti12z.cn/480ecd0b947389fd5c1884d6e89f2017?v=1555683139" alt="img"></p>
+        <p>Priests of the Quetzalcoatl cult want to build a tower to represent a power of their god. Tower is usually made of power-charged rocks. It is built with the help of rare magic by levitating the current top of tower and adding rocks at its bottom. If top, which is built from <em>k</em> - 1 rocks, possesses power <em>p</em> and we want to add the rock charged with power <em>$w_k$</em> then value of power of a new tower will be ${w_k}^p$​.</p>
+<p>Rocks are added from the last to the first. That is for sequence $w_1​$, …, $w_m​$ value of power will be</p>
+<img src="/2019/04/23/CF906D-Power-Tower/img.png">
 <p>After tower is built, its power may be extremely large. But still priests want to get some information about it, namely they want to know a number called cumulative power which is the true value of power taken modulo <em>m</em>. Priests have <em>n</em> rocks numbered from 1 to <em>n</em>. They ask you to calculate which value of cumulative power will the tower possess if they will build it from rocks numbered <em>l</em>, <em>l</em> + 1, …, <em>r</em>.</p>
 <p>Input</p>
-<p>First line of input contains two integers <em>n</em> (1 ≤ <em>n</em> ≤ $10^5$) and <em>m</em> (1 ≤ <em>m</em> ≤ $10^9$).</p>
-<p>Second line of input contains <em>n</em> integers <em>$w_k$~</em> (1 ≤ <em>$w_k$</em> ≤ $10^9$) which is the power of rocks that priests have.</p>
+<p>First line of input contains two integers <em>n</em> (1 ≤ <em>n</em> ≤ $10^5​$) and <em>m</em> (1 ≤ <em>m</em> ≤ $10^9​$).</p>
+<p>Second line of input contains <em>n</em> integers <em>$w_k$</em> (1 ≤ <em>$w_k$</em> ≤ $10^9$) which is the power of rocks that priests have.</p>
 <p>Third line of input contains single integer <em>q</em> (1 ≤ <em>q</em> ≤$ 10^5$) which is amount of queries from priests to you.</p>
-<p><em>$k^{th}$</em> of next <em>q</em> lines contains two integers <em>$l_k$~</em>and <em>$r_k$</em> (1 ≤ <em>$l_k$</em> ≤<em>$r_k$</em> ≤ <em>n</em>).</p>
+<p><em>$k^{th}$</em> of next <em>q</em> lines contains two integers <em>$l_k$</em>and <em>$r_k$</em> (1 ≤ <em>$l_k$</em> ≤<em>$r_k$</em> ≤ <em>n</em>).</p>
 <p>Output</p>
 <p>Output <em>q</em> integers. kth of them must be the amount of cumulative power the tower will have if is built from rocks <em>$l_k​$</em>,<em>$l_k​$</em> + 1, …, <em>​$r_k​$</em>.</p>
 <p><strong>input</strong></p>
@@ -392,10 +392,10 @@
 <p>做这题之前，首先要了解一些基本定理。</p>
 <p>欧拉定理：</p>
 <ul>
-<li>当 gcd(a,p)=1 时，有 $a^{φ(p)}$≡1 (mod p)</li>
+<li>当 gcd(a,p)=1 时，有 $a^{φ(p)}​$≡1 (mod p)</li>
 </ul>
 <p>所以可以得出推论：</p>
-<p><img src="C:\Users\IchinoseHonami\AppData\Roaming\Typora\typora-user-images\1556033780231.png" alt="1556033780231"></p>
+<img src="/2019/04/23/CF906D-Power-Tower/img2.png">
 <p>但是这个推论有gcd(a,p)=1的限制，不互质的情况下不适用，此时我们需要引入扩展欧拉定理。</p>
 <ul>
 <li><strong>当 b≥φ(p) 时，有 $a^b$≡$a^{bmodφ(p)+φ(p)}$ (mod p)</strong></li>
@@ -900,6 +900,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.staticfile.org/MathJax/MathJax-2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
