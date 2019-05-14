@@ -257,6 +257,369 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/04/CF1156E-Special-Segments-of-Permutation-单调栈-启发式合并/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Milim">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="C Tempest">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/04/CF1156E-Special-Segments-of-Permutation-单调栈-启发式合并/" itemprop="url">CF1156E Special Segments of Permutation(单调栈+启发式合并)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-04T23:03:33+08:00">
+                2019-05-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CF/" itemprop="url" rel="index">
+                    <span itemprop="name">CF</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/04/CF1156E-Special-Segments-of-Permutation-单调栈-启发式合并/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/04/CF1156E-Special-Segments-of-Permutation-单调栈-启发式合并/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/05/04/CF1156E-Special-Segments-of-Permutation-单调栈-启发式合并/" class="leancloud_visitors" data-flag-title="CF1156E Special Segments of Permutation(单调栈+启发式合并)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>You are given a permutation p of n integers 1, 2, …, n (a permutation is an array where each element from 1 to n occurs exactly once).</p>
+<p>Let’s call some subsegment p[l,r] of this permutation special if $p_l$+$p_r$=max$p_i$(l&lt;=i&lt;=r). Please calculate the number of special subsegments.</p>
+<p><strong>Input</strong></p>
+<p>The first line contains one integer n (3≤n≤2⋅$10^5$).</p>
+<p>The second line contains n integers p1, p2, …,pn (1≤pi≤n). All these integers are pairwise distinct.</p>
+<p><strong>Output</strong></p>
+<p>Print the number of special subsegments of the given permutation.</p>
+<p><strong>input</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">3 4 1 5 2</span><br></pre></td></tr></table></figure>
+<p><strong>output</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+<p><strong>input</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">1 3 2</span><br></pre></td></tr></table></figure>
+<p><strong>output</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
+<p>这题一开始就会想，每次枚举当前位置为最大值，然后来找两边是否有符合的，这样复杂度一看就是O($n^2$)的，但是通过单调栈优化和启发式合并可以把复杂度降到O（nlogn）</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/03/牛客练习赛45C-Buy-Fruits-构造/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Milim">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="C Tempest">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/03/牛客练习赛45C-Buy-Fruits-构造/" itemprop="url">牛客练习赛45C Buy Fruits(构造)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T23:42:53+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/牛客/" itemprop="url" rel="index">
+                    <span itemprop="name">牛客</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/03/牛客练习赛45C-Buy-Fruits-构造/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/03/牛客练习赛45C-Buy-Fruits-构造/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/05/03/牛客练习赛45C-Buy-Fruits-构造/" class="leancloud_visitors" data-flag-title="牛客练习赛45C Buy Fruits(构造)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>  在blueland上有 n 个水果店，它们的编号依次为 0,1,2…n−1。奇妙的是，每个水果店都只卖一种水果，且这些水果店卖的水果种类都各不相同。 </p>
+<p>  在每个水果店有一个传送门，且这些传送门也有各自的编号，其中 i 号水果店的传送门编号为  Ai，每个传送门的编号也各不相同，且是 [0,n−1]中的一个整数。简单的说， A0A1A2…An−1 是<strong>0∼n−1</strong>的一个排列。</p>
+<p>  lililalala初始位于 0 号水果店，现在他想买到全部的 n种水果，但是他并不认识路，所以只能通过传送门往来于水果店并通过固定的流程买水果: </p>
+<p>  当他到达 i 号水果店时，如果之前没有到过这个水果店，那么lililalala会买下这种水果并且通过这个水果店的传送门传送到 (i+Ai)modn号水果店； </p>
+<p>  如果之前已经到过这个水果店，那么他就立即停止买水果的流程。 </p>
+<p>  请输出一种使得lililalala可以买到全部  n种水果的一种传送门编号序列，或者判定不存在这样的序列。</p>
+<h2 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述:"></a>输入描述:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">仅一行一个整数 n(1≤n≤100000)。</span><br></pre></td></tr></table></figure>
+<h2 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述:"></a>输出描述:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">如果存在符合题目要求的序列:</span><br><span class="line"></span><br><span class="line">输出一行 n 个整数--符合题目要求的序列，如果有多个序列满足要求，输出任意一个即可。</span><br><span class="line">输出需要保证:</span><br><span class="line">∀i∈[0,n−1],Ai∈[0,n−1]</span><br><span class="line">∀i,j∈[0,n−1],满足Ai≠Aj如果i≠j，如果不存在符合题目要求的序列，输出  −1。</span><br></pre></td></tr></table></figure>
+<p> 示例1 </p>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>复制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8</span><br></pre></td></tr></table></figure>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>复制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6 3 7 2 0 5 1 4</span><br></pre></td></tr></table></figure>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lililalala经过水果店的顺序是：</span><br><span class="line"> 0→6→7→3→5→2→1→4 0→6→7→3→5→2→1→4</span><br><span class="line">答案可能不止一种。</span><br></pre></td></tr></table></figure>
+<p> 示例2 </p>
+<h2 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h2><p>复制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10</span><br></pre></td></tr></table></figure>
+<h2 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h2><p>复制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8 4 9 1 3 0 6 2 5 7</span><br></pre></td></tr></table></figure>
+<h2 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lililalala经过水果店的顺序是：</span><br><span class="line"> 0→8→3→4→7→9→6→2→1→5 0→8→3→4→7→9→6→2→1→5答案可能不止一种。</span><br></pre></td></tr></table></figure>
+<p>思路：n为奇数时，要使走到最后一个点Ai时，Ai=0，则一共走了1+2+····n-1步，共计$\frac{n<em>(n-1)}{2}$步，则终点为$\frac{n</em>(n-1)}{2}$modn,因为n为奇数，所以n-1为偶数，则算出终点为$A_0$=0,当且仅当n=1时成立，所以特判一下。</p>
+<p>n为偶数时，（$\frac{n*(n-2)}{2}$+$\frac{n}{2}$）modn=$\frac{n}{2}$，所以$A_\frac{n}{2}$=0,于是可以构造n-1,n-3····1,0,n-2,n-4,·····,4,2。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> il inline</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rg register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CL(a,b) memset(a,b,sizeof a)</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">1</span>)</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(n&amp;<span class="number">1</span>)</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n/<span class="number">2</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;n-(i*<span class="number">2</span>+<span class="number">1</span>)&lt;&lt;<span class="string">' '</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=n/<span class="number">2</span>+<span class="number">1</span>; i&lt;n; i++)</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">' '</span>&lt;&lt;n-(i-n/<span class="number">2</span>)*<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/03/CF1156D-0-1-Tree-DSU-DP-DFS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1705,376 +2068,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/08/WHU2019网络赛D-Dandelion/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Milim">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/img/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="C Tempest">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/08/WHU2019网络赛D-Dandelion/" itemprop="url">WHU2019网络赛D Dandelion</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-08T19:22:51+08:00">
-                2019-04-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/比赛/" itemprop="url" rel="index">
-                    <span itemprop="name">比赛</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/04/08/WHU2019网络赛D-Dandelion/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/08/WHU2019网络赛D-Dandelion/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/04/08/WHU2019网络赛D-Dandelion/" class="leancloud_visitors" data-flag-title="WHU2019网络赛D Dandelion">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>“O dandelion, yellow as gold,</p>
-<p>What do you do all day?”</p>
-<p>“I just wait here in the tall green grass</p>
-<p>Till the children come to play.”</p>
-<p>“O dandelion, yellow as gold,</p>
-<p>What do you do all night?”</p>
-<p>“I wait and wait till the cool dews fall</p>
-<p>And my hair grows long and white.”</p>
-<p>“And what do you do when your hair is white</p>
-<p>And the children come to play?”</p>
-<p>“They take me up in their dimpled hands</p>
-<p>And blow my hair away!”</p>
-<p>Spring is here and the dandelion is blooming. There is a small dandelion seed taking off. It will float upwards when there is no wind, and when the wind blows up it will be blown to the right.</p>
-<p>In other words, if a dandelion seed is currently at point (x,y), the next second it will only appear in either point (x,y+1) or point (x+1,y). All points (x,y) on the path must satisfy the constraint that x is less than y (i.e x&lt;y.</p>
-<p>Now, there is a dandelion seed at point (0,0), please find the number of ways(mod 10^9+7) to reach the point (m,n). 0&lt;m&lt;n≤100000.</p>
-<p><strong>Input</strong></p>
-<p>The first line has a integer T (T&lt;10), it means the number of the case.</p>
-<p>The following lines of input will be two integers: m and n.</p>
-<p><strong>Output</strong></p>
-<p>For each case, print an integer in a single line to represent the answer.</p>
-<hr>
-<p>思路：因为必须必须满足走的每个点x&lt;y，所以答案就是从（0，1）到(m,n)不越界的路线种数，而不越界的种数又等于总路线数-越界种数，其中总路线数用组合数C(m+n-1,m)表示，含义为(0,1)到（m,n)走m+n-1步，其中m步向右走；越界数用C(m+n-1,m-1)表示，含义为从（1，0）到（m,n)走m+n-1步，m-1步向右走，可能这一点不是很好想，为什么是从（1，0）走？因为给出的边界时y=x,从（0，1）越界的路线可以取对y=x这条直线的轴对称，就是（1，0)到终点的路线。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> il inline</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rg register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CL(a,b) memset(a,b,sizeof a)</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1e5</span>+<span class="number">7</span>,mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> a[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> base=a,ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>) ans=(ll)base*ans%mod;</span><br><span class="line">        base=(ll)base*base%mod;</span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">C</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp=(ll)a[n-m]*a[m]%mod;</span><br><span class="line">    <span class="keyword">int</span> ans=(ll)a[n]*qpow(tmp,mod<span class="number">-2</span>)%mod;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T,m,n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;T;</span><br><span class="line">    a[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(rg <span class="keyword">int</span> i=<span class="number">1</span>;i&lt;N;i++)</span><br><span class="line">        a[i]=(ll)a[i<span class="number">-1</span>]*i%mod;</span><br><span class="line">    <span class="keyword">while</span>(T--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;m&gt;&gt;n;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;(C(m+n<span class="number">-1</span>,m)-C(m+n<span class="number">-1</span>,m<span class="number">-1</span>)+mod)%mod&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/UVA11292-The-dragon-of-Loowater/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Milim">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/img/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="C Tempest">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/29/UVA11292-The-dragon-of-Loowater/" itemprop="url">UVA11292 The dragon of Loowater</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-29T23:21:18+08:00">
-                2019-03-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/uva/" itemprop="url" rel="index">
-                    <span itemprop="name">uva</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/03/29/UVA11292-The-dragon-of-Loowater/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/29/UVA11292-The-dragon-of-Loowater/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/03/29/UVA11292-The-dragon-of-Loowater/" class="leancloud_visitors" data-flag-title="UVA11292 The dragon of Loowater">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>你的王国里有一条n个头的恶龙，你希望雇一些骑士把它杀死（即砍掉所有头）。村里有m个骑士可以雇佣，一个能力值为x的骑士可以砍掉恶龙一个直径不超过x的头，且需要支付x个金币。如何雇佣骑士才能砍掉恶龙的所有头，且需要支付的金币最少？注意，一个骑士只能砍一个头（且不能被雇佣两次）。</p>
-<p>【输入格式】</p>
-<p>输入包含多组数据。每组数据的第一行为正整数n和m（1≤n,m≤20 000）；以下n行每行为一个整数，即恶龙每个头的直径；以下m行每行为一个整数，即每个骑士的能力。输入结束标志为n=m=0。</p>
-<p>【输出格式】</p>
-<p>对于每组数据，输出最少花费。如果无解，输出“Loowater isdoomed!”。</p>
-<p>【样例输入】</p>
-<p>2 3</p>
-<p>5</p>
-<p>4</p>
-<p>7</p>
-<p>8</p>
-<p>4</p>
-<p>2 1</p>
-<p>5</p>
-<p>5</p>
-<p>10</p>
-<p>0 0</p>
-<p>【样例输出】</p>
-<p>11</p>
-<p>Loowater is doomed!</p>
-<hr>
-<p>思路：将龙头的直径和骑士能力值从小到大排序，然后遍历骑士即可。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> il inline</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rg register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CL(a,b) memset(a,b,sizeof a)</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">2e4</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> a[N],b[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m,n+m)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(rg <span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">        <span class="keyword">for</span>(rg <span class="keyword">int</span> i=<span class="number">0</span>; i&lt;m; i++)</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;b[i];</span><br><span class="line">        sort(a,a+n);</span><br><span class="line">        sort(b,b+m);</span><br><span class="line">        <span class="keyword">int</span> cur=<span class="number">0</span>,cost=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(rg <span class="keyword">int</span> i=<span class="number">0</span>; i&lt;m; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(b[i]&gt;=a[cur])</span><br><span class="line">            &#123;</span><br><span class="line">                cost+=b[i];</span><br><span class="line">                cur++;</span><br><span class="line">                <span class="keyword">if</span>(cur==n)</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(cur&lt;n)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Loowater is doomed!\n"</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;cost&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2127,7 +2120,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2138,7 +2131,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2149,7 +2142,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
