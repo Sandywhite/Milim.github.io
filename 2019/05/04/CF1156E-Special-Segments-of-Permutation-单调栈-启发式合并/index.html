@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="C Tempest">
 <meta property="og:description" content="You are given a permutation p of n integers 1, 2, …, n (a permutation is an array where each element from 1 to n occurs exactly once). Let’s call some subsegment p[l,r] of this permutation special if">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-14T11:12:13.599Z">
+<meta property="og:updated_time" content="2019-05-22T12:26:07.049Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CF1156E Special Segments of Permutation(单调栈+启发式合并)">
 <meta name="twitter:description" content="You are given a permutation p of n integers 1, 2, …, n (a permutation is an array where each element from 1 to n occurs exactly once). Let’s call some subsegment p[l,r] of this permutation special if">
@@ -350,6 +350,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
           
 
@@ -383,7 +388,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">1 3 2</span><br></pre></td></tr></table></figure>
 <p><strong>output</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
-<p>这题一开始就会想，每次枚举当前位置为最大值，然后来找两边是否有符合的，这样复杂度一看就是O($n^2$)的，但是通过单调栈优化和启发式合并可以把复杂度降到O（nlogn）</p>
+<p>这题一开始就会想，每次枚举当前位置为最大值，然后来找两边是否有符合的，这样复杂度一看就是O($n^2$)的，但是通过单调栈优化和启发式合并可以把复杂度降到O(nlogn)，这个复杂度很容易证明，最坏的情况下是均摊的，每次合并后队列长度一定大于原来的2倍，最多合并logn次，n个结点所以为nlogn</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> il inline</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rg register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CL(a,b) memset(a,b,sizeof a)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> sc second</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">2e5</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> a[N],pos[N],l[N],r[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">        pos[a[i]]=i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">stack</span>&lt;pii&gt;s;</span><br><span class="line">    s.push(&#123;n+<span class="number">1</span>,<span class="number">-1</span>&#125;);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++) <span class="comment">//首先前后2次单调栈记录小于当前位置值的区间边界</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(s.top().fi&lt;a[i])</span><br><span class="line">            s.pop();</span><br><span class="line">        l[i]=s.top().sc+<span class="number">1</span>;</span><br><span class="line">        s.push(&#123;a[i],i&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(!s.empty())</span><br><span class="line">        s.pop();</span><br><span class="line">    s.push(&#123;n+<span class="number">1</span>,n&#125;);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=n<span class="number">-1</span>; i&gt;=<span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(s.top().fi&lt;a[i])</span><br><span class="line">            s.pop();</span><br><span class="line">        r[i]=s.top().sc<span class="number">-1</span>;</span><br><span class="line">        s.push(&#123;a[i],i&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;n<span class="number">-1</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> lenl=i-l[i];</span><br><span class="line">        <span class="keyword">int</span> lenr=r[i]-i;</span><br><span class="line">        <span class="keyword">if</span>(!lenl||!lenr)</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span>(lenl&lt;lenr)   <span class="comment">//选择小的一边，这就是启发式合并的思想</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=l[i]; j&lt;i; j++)</span><br><span class="line">                <span class="keyword">if</span>(pos[a[i]-a[j]]&gt;i&amp;&amp;pos[a[i]-a[j]]&lt;=r[i])</span><br><span class="line">                    ans++;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>; j&lt;=r[i]; j++)</span><br><span class="line">                <span class="keyword">if</span>(pos[a[i]-a[j]]&gt;=l[i]&amp;&amp;pos[a[i]-a[j]]&lt;i)</span><br><span class="line">                    ans++;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -580,6 +586,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
