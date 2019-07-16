@@ -257,6 +257,184 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/03/CF1156D-0-1-Tree-DSU-DP-DFS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Milim">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="C Tempest">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/03/CF1156D-0-1-Tree-DSU-DP-DFS/" itemprop="url">CF1156D 0-1-Tree (DSU/(DP+DFS))</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T13:54:34+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CF/" itemprop="url" rel="index">
+                    <span itemprop="name">CF</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/03/CF1156D-0-1-Tree-DSU-DP-DFS/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/03/CF1156D-0-1-Tree-DSU-DP-DFS/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/05/03/CF1156D-0-1-Tree-DSU-DP-DFS/" class="leancloud_visitors" data-flag-title="CF1156D 0-1-Tree (DSU/(DP+DFS))">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>You are given a tree (an undirected connected acyclic graph) consisting of n vertices and n−1 edges. A number is written on each edge, each number is either 0 (let’s call such edges 0-edges) or 1 (those are 1-edges).</p>
+<p>Let’s call an ordered pair of vertices (x,y) (x≠y) <strong>valid</strong> if, while traversing the simple path from x to y, we never go through a 0-edge after going through a 1-edge. Your task is to calculate the number of <strong>valid</strong> pairs in the tree.</p>
+<p><strong>Input</strong></p>
+<p>The first line contains one integer nn (2≤n≤200000) — the number of vertices in the tree.</p>
+<p>Then n−1 lines follow, each denoting an edge of the tree. Each edge is represented by three integers xi, yi and ci (1≤xi,yi≤n,0≤ci≤1,xi≠yi) — the vertices connected by this edge and the number written on it, respectively.</p>
+<p>It is guaranteed that the given edges form a tree.</p>
+<p><strong>Output</strong></p>
+<p>Print one integer — the number of <strong>valid</strong> pairs of vertices.</p>
+<p><strong>input</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">7</span><br><span class="line">2 1 1</span><br><span class="line">3 2 0</span><br><span class="line">4 2 1</span><br><span class="line">5 2 0</span><br><span class="line">6 7 1</span><br><span class="line">7 2 1</span><br></pre></td></tr></table></figure>
+<p><strong>output</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">34</span><br></pre></td></tr></table></figure>
+<p>这题标准是按DSU来做，通过把0-edge和1-edge加入到并查集中，最后计算（只包含0-edge）+（只包含1-edge）+（都包含）的个数就可以得到最终答案。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> il inline</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rg register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CL(a,b) memset(a,b,sizeof a)</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">2e5</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> p[<span class="number">2</span>][N],sz[<span class="number">2</span>][N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p[c][x]==x)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> p[c][x]=find(p[c][x],c);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x=find(x,c);</span><br><span class="line">    y=find(y,c);</span><br><span class="line">    <span class="keyword">if</span>(sz[c][x]&lt;sz[c][y])    <span class="comment">//如果y的父亲的结点数更多，则交换x,y来保证x为最终的父亲节点</span></span><br><span class="line">        swap(x,y);</span><br><span class="line">    p[c][y]=x;</span><br><span class="line">    sz[c][x]+=sz[c][y];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> n,x,y,z;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        p[<span class="number">0</span>][i]=p[<span class="number">1</span>][i]=i;</span><br><span class="line">        sz[<span class="number">0</span>][i]=sz[<span class="number">1</span>][i]=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;x&gt;&gt;y&gt;&gt;z;</span><br><span class="line">        x--;</span><br><span class="line">        y--;</span><br><span class="line">        merge(x,y,z);</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;                  <span class="comment">//假设这一个点为0，1边的公共结点，则答案为（0边结点数-1）*（1边结点数-1）</span></span><br><span class="line">        ans+=(ll)(sz[<span class="number">0</span>][find(i,<span class="number">0</span>)]<span class="number">-1</span>)*(sz[<span class="number">1</span>][find(i,<span class="number">1</span>)]<span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">if</span>(p[<span class="number">0</span>][i]==i)           <span class="comment">//为0边的父亲节点时计算C（n,2)*2</span></span><br><span class="line">            ans+=(ll)sz[<span class="number">0</span>][i]*(sz[<span class="number">0</span>][i]<span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">if</span>(p[<span class="number">1</span>][i]==i)           <span class="comment">//同理</span></span><br><span class="line">            ans+=(ll)sz[<span class="number">1</span>][i]*(sz[<span class="number">1</span>][i]<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>比赛结束后我还学习了qls的dfs代码，感觉写的很好，通过构造up和dw数组来表示路径然后通过树形dp来计算答案，其中边的任意性是指保证该点可以连接0 1任何一条边，因为题目要求1边不能在0边之前，所以最开始的边是0，最终的边是1，这样就能保证中间可以为任意边</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> il inline</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rg register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CL(a,b) memset(a,b,sizeof a)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">2e5</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="built_in">vector</span>&lt;pii&gt;e[N];</span><br><span class="line">ll ans;</span><br><span class="line"><span class="keyword">int</span> up[N][<span class="number">2</span>],dw[N][<span class="number">2</span>]; up:向上且最后一条边为<span class="number">0</span>/<span class="number">1</span> dw:向下且最初一条边为<span class="number">0</span>/<span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> fa)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    up[u][<span class="number">0</span>]=dw[u][<span class="number">1</span>]=<span class="number">1</span>; </span><br><span class="line">    每个点最初都可以引出一条边，考虑到边的任意性，所以是up[u][<span class="number">0</span>]和dw[u][<span class="number">1</span>]初始化为<span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;t:e[u])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> v=t.first;</span><br><span class="line">        <span class="keyword">int</span> c=t.second;</span><br><span class="line">        <span class="keyword">if</span>(v==fa) <span class="keyword">continue</span>;</span><br><span class="line">        dfs(v,u);</span><br><span class="line">        <span class="keyword">if</span>(!c)</span><br><span class="line">        &#123;</span><br><span class="line">            ans+=<span class="number">1l</span>l*up[u][<span class="number">0</span>]*(dw[v][<span class="number">1</span>]+dw[v][<span class="number">0</span>])+<span class="number">1l</span>l*up[v][<span class="number">0</span>]*(dw[u][<span class="number">0</span>]+dw[u][<span class="number">1</span>]);</span><br><span class="line">            up[u][<span class="number">0</span>]+=up[v][<span class="number">0</span>];</span><br><span class="line">            dw[u][<span class="number">0</span>]+=dw[v][<span class="number">0</span>]+dw[v][<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            ans+=<span class="number">1l</span>l*(up[u][<span class="number">1</span>]+up[u][<span class="number">0</span>])*dw[v][<span class="number">1</span>]+<span class="number">1l</span>l*(up[v][<span class="number">0</span>]+up[v][<span class="number">1</span>])*dw[u][<span class="number">1</span>];</span><br><span class="line">            up[u][<span class="number">1</span>]+=up[v][<span class="number">1</span>]+up[v][<span class="number">0</span>];</span><br><span class="line">            dw[u][<span class="number">1</span>]+=dw[v][<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">int</span> x,y,z;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;x&gt;&gt;y&gt;&gt;z;</span><br><span class="line">        e[x].push_back(&#123;y,z&#125;);</span><br><span class="line">        e[y].push_back(&#123;x,z&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(<span class="number">1</span>,<span class="number">-1</span>);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/29/Atcoder-Tenka1-BC2019-C-Stones-前缀和/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1897,189 +2075,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/27/HDU3006-The-number-of-set-状压DP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Milim">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/img/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="C Tempest">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/27/HDU3006-The-number-of-set-状压DP/" itemprop="url">HDU3006 The number of set(状压DP)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-27T16:42:33+08:00">
-                2019-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HDU/" itemprop="url" rel="index">
-                    <span itemprop="name">HDU</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/03/27/HDU3006-The-number-of-set-状压DP/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/27/HDU3006-The-number-of-set-状压DP/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/03/27/HDU3006-The-number-of-set-状压DP/" class="leancloud_visitors" data-flag-title="HDU3006 The number of set(状压DP)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h5 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h5><p>Given you n sets.All positive integers in sets are not less than 1 and not greater than m.If use these sets to combinate the new set,how many different new set you can get.The given sets can not be broken.</p>
-<h5 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h5><p>There are several cases.For each case,the first line contains two positive integer n and m(1&lt;=n&lt;=100,1&lt;=m&lt;=14).Then the following n lines describe the n sets.These lines each contains k+1 positive integer,the first which is k,then k integers are given. The input is end by EOF.</p>
-<h5 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h5><p>For each case,the output contain only one integer,the number of the different sets you get.</p>
-<h5 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h5><p><code>4 4
-1 1
-1 2
-1 3
-1 4
-2 4
-3 1 2 3
-4 1 2 3 4</code></p>
-<h5 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h5><p><code>15
-2</code></p>
-<hr>
-<p>题意：给你n个集合，每个集合元素数量≥1且≤m个，求你能得到多少种不同的集合。</p>
-<p>思路：因为1≤m≤14，可以发现状态数很小，适合用状压DP来做，所以上代码</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> il inline</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rg register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CL(a,b) memset(a,b,sizeof a)</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1</span>&lt;&lt;<span class="number">15</span>+<span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,k;</span><br><span class="line"><span class="keyword">int</span> dp[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m)</span><br><span class="line">    &#123;</span><br><span class="line">        CL(dp,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> i,x,tmp;</span><br><span class="line">        <span class="keyword">while</span>(n--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;k);</span><br><span class="line">            tmp=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=k; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</span><br><span class="line">                tmp=tmp|(<span class="number">1</span>&lt;&lt;(x<span class="number">-1</span>)); <span class="comment">//将集合中的每个元素插入状态中</span></span><br><span class="line">            &#125;</span><br><span class="line">            dp[tmp]=<span class="number">1</span>; <span class="comment">//初始化每个集合为1</span></span><br><span class="line">            <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;(<span class="number">1</span>&lt;&lt;m); i++)</span><br><span class="line">                <span class="keyword">if</span>(dp[i])</span><br><span class="line">                &#123;</span><br><span class="line">                    dp[i|tmp]=<span class="number">1</span>; <span class="comment">//如果存在i这个状态的集合，则合并i和tmp状态</span></span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;(<span class="number">1</span>&lt;&lt;m); i++) <span class="comment">//遍历找出所有状态的集合</span></span><br><span class="line">            <span class="keyword">if</span>(dp[i])</span><br><span class="line">                ans++;  </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2127,7 +2127,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2138,7 +2138,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
