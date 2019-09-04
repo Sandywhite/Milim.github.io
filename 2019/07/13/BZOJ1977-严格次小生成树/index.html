@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="lca,mst,">
+  <meta name="keywords" content="mst,lca,">
 
 
 
@@ -84,7 +84,7 @@
 
 
 <meta name="description" content="小 C 最近学了很多最小生成树的算法，Prim 算法、Kurskal 算法、消圈算法等等。 正当小 C 洋洋得意之时，小 P 又来泼小 C 冷水了。小 P 说，让小 C 求出一个无向图的次小生成树，而且这个次小生成树还得是严格次小的，也就是说： 如果最小生成树选择的边集是 EM，严格次小生成树选择的边集是 ES，那么需要满足：(value(e) 表示边 e的权值) 这下小 C 蒙了，他找到了你，希">
-<meta name="keywords" content="lca,mst">
+<meta name="keywords" content="mst,lca">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BZOJ1977 严格次小生成树">
 <meta property="og:url" content="http://yoursite.com/2019/07/13/BZOJ1977-严格次小生成树/index.html">
@@ -325,26 +325,11 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/07/13/BZOJ1977-严格次小生成树/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/13/BZOJ1977-严格次小生成树/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
           
 
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
           
 
           
@@ -396,9 +381,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/lca/" rel="tag"># lca</a>
-          
             <a href="/tags/mst/" rel="tag"># mst</a>
+          
+            <a href="/tags/lca/" rel="tag"># lca</a>
           
         </div>
       
@@ -604,26 +589,6 @@
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
-
 
 
 
@@ -775,28 +740,6 @@
 
 
 
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item=>{
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: false,
-        appId: 'jGsA3hXMsEyL2bKgi7fmy2Jp-gzGzoHsz',
-        appKey: 'vMalEtRFh6naxP6CKFKGAKaO',
-        placeholder: '欢迎留言',
-        avatar:'mm',
-        guest_info:guest,
-        pageSize:'10' || 10,
-    });
-  </script>
 
 
 
