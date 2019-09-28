@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="Here is a square matrix of n  n, each lattice has its value (n must be odd), and the center value is n  n​. Its spiral decline along the center of the square matrix (the way of spiral decline is shown">
+<meta name="description" content="Here is a square matrix of n$\times$n, each lattice has its value (n must be odd), and the center value is n$\times$n. Its spiral decline along the center of the square matrix (the way of spiral decli">
 <meta name="keywords" content="二维偏序,树状数组">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2019 Nanjing online A The beautiful values of the palace">
 <meta property="og:url" content="http://yoursite.com/2019/09/13/2019 Nanjing-online-A-The-beautiful-values-of-the-palace/index.html">
 <meta property="og:site_name" content="C Tempest">
-<meta property="og:description" content="Here is a square matrix of n  n, each lattice has its value (n must be odd), and the center value is n  n​. Its spiral decline along the center of the square matrix (the way of spiral decline is shown">
+<meta property="og:description" content="Here is a square matrix of n$\times$n, each lattice has its value (n must be odd), and the center value is n$\times$n. Its spiral decline along the center of the square matrix (the way of spiral decli">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-28T13:18:20.906Z">
+<meta property="og:updated_time" content="2019-09-28T13:24:59.067Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2019 Nanjing online A The beautiful values of the palace">
-<meta name="twitter:description" content="Here is a square matrix of n  n, each lattice has its value (n must be odd), and the center value is n  n​. Its spiral decline along the center of the square matrix (the way of spiral decline is shown">
+<meta name="twitter:description" content="Here is a square matrix of n$\times$n, each lattice has its value (n must be odd), and the center value is n$\times$n. Its spiral decline along the center of the square matrix (the way of spiral decli">
 
 
 
@@ -347,16 +347,16 @@
       
 
       
-        <p>Here is a square matrix of n <em> n, each lattice has its value (n must be odd), and the center value is n </em> n​. Its spiral decline along the center of the square matrix (the way of spiral decline is shown in the following figure:)</p>
+        <p>Here is a square matrix of n$\times$n, each lattice has its value (n must be odd), and the center value is n$\times$n. Its spiral decline along the center of the square matrix (the way of spiral decline is shown in the following figure:)</p>
 
 
 <p><strong>The grid in the lower left corner is (1,1) and the grid in the upper right corner is (n , n)</strong></p>
-<p>Now I can choose m<em>m</em> squares to build palaces, The beauty of each palace is equal to the digital sum of the value of the land which it is located. Such as (the land value is 123213123213,the beautiful values of the palace located on it is 1+2+3+2+1+3=121+2+3+2+1+3=12) (666666 -&gt; 1818) (456456 -&gt;1515)</p>
-<p>Next, we ask p<em>p</em> times to the sum of the beautiful values of the palace in the matrix where the lower left grid($x_1$,$y_1$), the upper right square ($x_2$,$y_2$).</p>
+<p>Now I can choose m squares to build palaces, The beauty of each palace is equal to the digital sum of the value of the land which it is located. Such as (the land value is 123213123213,the beautiful values of the palace located on it is 1+2+3+2+1+3=121+2+3+2+1+3=12) (666666 -&gt; 1818) (456456 -&gt;1515)</p>
+<p>Next, we ask p times to the sum of the beautiful values of the palace in the matrix where the lower left grid($x_1$,$y_1$), the upper right square ($x_2$,$y_2$).</p>
 <h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>The first line has only one number T .Representing T-group of test data (T≤5)</p>
 <p>The next line is three number: n,m,p</p>
-<p>The <em>m</em> lines follow, each line contains two integers the square of the palace (<em>x</em>,<em>y</em>)</p>
-<p>The p<em>p</em> lines follow, each line contains four integers : the lower left grid ($x_1$,$y_1$) the upper right square ($x_2$,$y_2$)</p>
+<p>The m lines follow, each line contains two integers the square of the palace (<em>x</em>,<em>y</em>)</p>
+<p>The p lines follow, each line contains four integers : the lower left grid ($x_1$,$y_1$) the upper right square ($x_2$,$y_2$)</p>
 <h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>Next, $p_1$+$p_2$…+$p_T$ lines: Represent the answer in turn(<em>n</em>≤$10^6$)(<em>m</em>,<em>p</em>≤$10^5$)</p>
 <h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">3 4 4</span><br><span class="line">1 1</span><br><span class="line">2 2</span><br><span class="line">3 3</span><br><span class="line">2 3</span><br><span class="line">1 1 1 1</span><br><span class="line">2 2 3 3</span><br><span class="line">1 1 3 3</span><br><span class="line">1 2 2 3</span><br></pre></td></tr></table></figure>
 <h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">18</span><br><span class="line">23</span><br><span class="line">17</span><br></pre></td></tr></table></figure>
